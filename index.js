@@ -1,5 +1,5 @@
 const express = require('express');
-const puerto = '8080';
+const puerto = '3000';
 const app = express();
 const con = require('./sql/db.js');
 
@@ -25,3 +25,7 @@ app.get('/peliculas', function (req, res) {
 app.listen(puerto, function () {
     console.log( "Escuchando en el puerto " + puerto );
   });
+
+process.on('uncaughtException', function (err) {
+    console.log(err)
+})
